@@ -51,6 +51,7 @@ h2 {
 a {
   color: var(--green);
   text-decoration: none;
+  transition: .130s ease-in-out;
 }
 
 a:hover {
@@ -66,6 +67,7 @@ button {
   border-radius: 0.25rem;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  transition: 210ms ease-in-out;
 }
 
 button:hover {
@@ -74,6 +76,7 @@ button:hover {
 
 .button.new {
   display: inline-block; /* se fosse block, a linha toda seria clicavel */
+  margin-top: 2rem;
   margin-bottom: 0.8rem;
 }
 
@@ -121,7 +124,7 @@ header {
   background: #fff;
   padding: 1.5rem 2rem;
   border-radius: .25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--dark-blue);
 }
 
@@ -216,6 +219,7 @@ td.expense {
   /* para não aparecer */
   opacity: 0;
   visibility: hidden;
+  z-index: 999;
 }
 
 .modal-overlay.active {
@@ -228,6 +232,9 @@ td.expense {
   padding: 2.4rem;
   width: 90%;
   max-width: 500px;
+
+  position: relative;
+  z-index: 1;
 }
 
 /* Form ==================== */
@@ -245,7 +252,6 @@ input {
   border-radius: 0.2rem;
   padding: 0.8rem;
 }
-
 
 .input-group {
   margin-top: 0.8rem;
