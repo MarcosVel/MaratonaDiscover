@@ -19,6 +19,18 @@ body {
   margin: auto;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+} /* para não mostrar na tela sem afetar os leitores SEO */
+
 /* Titles ==================== */
 h2 {
   margin-top: 3.2rem;
@@ -61,6 +73,10 @@ header {
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card p {
