@@ -1,6 +1,9 @@
 /* Global ==================== */
 :root {
   --dark-blue: #363F5F;
+  --green: #49AA26;
+  --green-hover: #3dd705;
+  --red: #e92929;
 }
 
 * {
@@ -23,6 +26,7 @@ body {
   margin: auto;
 }
 
+/* classe só para leitura do SEO */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -45,17 +49,49 @@ h2 {
 
 /* Links & Buttons ==================== */
 a {
-  color: #49AA26;
+  color: var(--green);
   text-decoration: none;
 }
 
 a:hover {
-  color: #3dd705;
+  color: var(--green-hover);
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: #fff;
+  background: var(--green);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background: var(--green-hover);
 }
 
 .button.new {
   display: inline-block; /* se fosse block, a linha toda seria clicavel */
   margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+  height: 50px;
+  color: var(--red);
+  border: solid 2px var(--red);
+  border-radius: 0.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.6;
+}
+
+.button.cancel:hover {
+  opacity: 1;
 }
 
 /* Header ==================== */
@@ -104,7 +140,7 @@ header {
   margin-top: .5rem;
 }
 .card.total {
-  background: #49AA26;
+  background: var(--green);
   color: #fff;
 }
 
@@ -161,7 +197,7 @@ td.income {
 }
 
 td.expense {
-  color: #e92929;
+  color: var(--red);
 }
 
 /* Modal ==================== */
@@ -190,7 +226,44 @@ td.expense {
 .modal {
   background: #f0f2f5;
   padding: 2.4rem;
-  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Form ==================== */
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+}
+
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group small {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
 }
 
 /* Footer ==================== */
