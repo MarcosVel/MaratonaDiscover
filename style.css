@@ -73,6 +73,51 @@ header {
   color: #fff;
 }
 
+/* Table ==================== */
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem; /* eixo X e Y */
+  color: #969cb3;
+}
+
+table thead th {
+  background: #fff;
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
+  
+}
+
+table tbody tr {
+  opacity: 0.7;
+}
+
+table tbody tr:hover {
+  opacity: 1;
+}
+
+table tbody td {
+  background: #fff;
+  padding: 1rem 2rem;
+}
+
+table thead th:first-child,
+table tbody td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+td.description {
+  color: var(--dark-blue);
+}
+
+td.income {
+  color: #12a454;
+}
+
+td.expense {
+  color: #e92929;
+}
+
 /* Footer ==================== */
 footer {
   text-align: center;
