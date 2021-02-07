@@ -127,7 +127,14 @@ const Utils = {
     })
 
     return signal + value;
+  },
+
+  formatAmount(value) {
+    value = Number(value) * 100;
+
+    return value;
   }
+
 }
 
 const Form = {
@@ -151,8 +158,10 @@ const Form = {
     } 
   },
 
-  formateData() {
+  formatValues() {
+    let { description, amount, date } = Form.getValues();
 
+    amount = Utils.formatAmount(amount);
   },
 
   submit(event) {
@@ -160,7 +169,8 @@ const Form = {
 
     try {
       Form.validateFields()
-      // Form.formateData()
+      
+      Form.formatValues()
     } catch (error) {
       alert(error.message)
     }
