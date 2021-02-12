@@ -195,13 +195,13 @@ const Form = {
 
       const transaction = Form.formatValues();
       // salvar
-      Form.saveTransaction(transaction)
+      Form.saveTransaction(transaction);
       // apagar os dados do formulário
-      Form.clearFields()
+      Form.clearFields();
       // fechar modal
-
+      Modal.close();
       // Atualizar a aplicação
-      
+      App.reload();
     } catch (error) {
       alert(error.message)
     }
