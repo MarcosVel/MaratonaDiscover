@@ -42,9 +42,9 @@ const Transaction = {
   },
 
   remove(index) {
-    Transaction.all.splice(index, 1)
+    Transaction.all.splice(index, 1);
 
-    App.reload()
+    App.reload();
   },
 
   incomes() {
@@ -114,6 +114,14 @@ const DOM = {
 }
 
 const Utils = {
+  formatAmount(value) {
+    // FORMATAÇÃO DE MOEDA PARA . E , 
+    // value = Number(value.replace(/\,\./g, '')) * 100
+    value = Number(value) * 100
+
+    return value;
+  },
+
   formatCurrency(value) {
     const signal = Number(value) < 0 ? '-': ''
 
@@ -129,14 +137,8 @@ const Utils = {
     return signal + value;
   },
 
-  formatAmount(value) {
-    value = Number(value) * 100;
-
-    return value;
-  },
-
   formatDate(date) {
-    const splittedDate = date.splice('-')
+    const splittedDate = date.split('-')
     return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
   }
 
@@ -191,8 +193,7 @@ const Form = {
     event.preventDefault()
 
     try {
-      Form.validateFields();      
-
+      Form.validateFields();
       const transaction = Form.formatValues();
       // salvar
       Form.saveTransaction(transaction);
@@ -200,10 +201,9 @@ const Form = {
       Form.clearFields();
       // fechar modal
       Modal.close();
-      // Atualizar a aplicação
-      App.reload();
+      // Atualizar a aplicação, mas já tem no saveTransaction
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
   }
 }
