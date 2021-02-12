@@ -133,6 +133,11 @@ const Utils = {
     value = Number(value) * 100;
 
     return value;
+  },
+
+  formatDate(date) {
+    const splittedDate = date.splice('-')
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
   }
 
 }
@@ -162,15 +167,24 @@ const Form = {
     let { description, amount, date } = Form.getValues();
 
     amount = Utils.formatAmount(amount);
+
+    date = Utils.formatDate(date);
+
+    return {
+      description,
+      amount,
+      date
+    }
   },
 
   submit(event) {
     event.preventDefault()
 
     try {
-      Form.validateFields()
+      Form.validateFields();      
+
+      const transaction = Form.formatValues();
       
-      Form.formatValues()
     } catch (error) {
       alert(error.message)
     }
