@@ -9,31 +9,42 @@ const Modal = {
   }
 }
 
-const transactions = [
-  {
-    description: 'Luz',
-    amount: -50000, // == -500,00
-    date: '23/01/2021',
+const Storage = {
+  get() {
+    return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
   },
-  {
-    description: 'Website',
-    amount: 500000, 
-    date: '23/01/2021',
-  },
-  {
-    description: 'Internet',
-    amount: -20000,
-    date: '23/01/2021',
-  },
-  {
-    description: 'App',
-    amount: 200000,
-    date: '23/01/2021',
+  set(transactions) {
+    localStorage.setItem('dev.finances:transactions', JSON.stringify(transactions))
   }
-]
+}
+
+// ANTES DO LOCALSTORAGE
+// const transactions = [
+//   {
+//     description: 'Luz',
+//     amount: -50000, // == -500,00
+//     date: '23/01/2021',
+//   },
+//   {
+//     description: 'Website',
+//     amount: 500000, 
+//     date: '23/01/2021',
+//   },
+//   {
+//     description: 'Internet',
+//     amount: -20000,
+//     date: '23/01/2021',
+//   },
+//   {
+//     description: 'App',
+//     amount: 200000,
+//     date: '23/01/2021',
+//   }
+// ]
 
 const Transaction = {
-  all: transactions,
+  // all: transactions,
+  all: Storage.get(),
 
   add(transaction) {
     Transaction.all.push(transaction);
@@ -210,15 +221,6 @@ const Form = {
   }
 }
 
-const Storage = {
-  get() {
-    return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
-  },
-  set(transactions) {
-    localStorage.setItem('dev.finances:transactions', JSON.stringify(transactions))
-  }
-}
-
 const App = {
   init() {
     Transaction.all.forEach((transaction, index) => {
@@ -226,11 +228,13 @@ const App = {
     })
     
     DOM.updateBallance();
+    // Atualizando localStorage
+    Storage.set(Transaction.all);
   },
 
   reload() {
-    DOM.clearTransactions()
-    App.init()
+    DOM.clearTransactions();
+    App.init();
   },
 }
 
