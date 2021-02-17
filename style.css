@@ -203,6 +203,10 @@ td.expense {
   color: var(--red);
 }
 
+.imgRemove {
+  cursor: pointer;
+}
+
 /* Modal ==================== */
 .modal-overlay {
   width: 100%;
